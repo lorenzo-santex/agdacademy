@@ -1,0 +1,14 @@
+version: '3'
+services:
+  clase6:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./front:/usr/share/nginx/html
+  clase6db:
+    image: mysql:latest
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
