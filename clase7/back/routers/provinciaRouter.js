@@ -40,4 +40,16 @@ router.post('/:code/ciudades/crear', async (req, res) => {
     res.json(ciudad);
 });
 
+router.get('/:code/ciudades/', async (req, res) => {
+    const { code } = req.params;
+    const provincia = await Provincia.findOne( { where: {code: code}});
+    const ciudades = await Ciudad.findAll( 
+        { 
+            where: {parent_id: provincia.id },
+            attributes: ['id', 'name', 'code']
+        }
+    );
+    res.json(ciudades);
+});
+
 module.exports = router;
