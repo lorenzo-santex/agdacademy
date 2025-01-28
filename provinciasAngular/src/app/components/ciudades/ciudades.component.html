@@ -1,0 +1,12 @@
+<h1>CIUDADES de {{provinciaCode}}</h1>
+<div *ngIf="!error">
+    <mat-list role="list" id="listaCiudades">
+        <mat-list-item role="listitem" *ngFor="let ciudad of ciudades">
+            {{ciudad.name}}
+        </mat-list-item>
+      </mat-list>      
+</div>
+<div *ngIf="error" class="error">
+    <h2>Ha ocurrido un error</h2>
+</div>
+

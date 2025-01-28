@@ -13,4 +13,8 @@ export class ProvinciasService {
   getProvincias(): Observable<any> {
     return this.http.get(this.apiURL);
   }
+
+  getCiudades( provinciaCode:string ): Observable<any> {
+    return this.http.get(`${this.apiURL}/${provinciaCode}/ciudades`);
+  }
 }

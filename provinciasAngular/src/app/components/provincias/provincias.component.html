@@ -3,15 +3,20 @@
 
 
 <div *ngIf="!error">
-    <ul id="listaProvincias">
-        <li *ngFor="let provincia of provincias">{{provincia.name}}</li>
-    </ul>
+    <mat-list role="list" id="listaProvincias">
+        <mat-list-item role="listitem" *ngFor="let provincia of provincias">
+            <a mat-button [routerLink]="['/provincia/' + provincia.code]">{{provincia.name}}</a>
+        </mat-list-item>
+      </mat-list>
 
     <select id="selectProvincias">
         <option value="" selected>Seleccione una provincia</option>
         <option *ngFor="let provincia of provincias"
             [value]="provincia.code">{{provincia.name}}</option>
     </select>
+
+
+      
 </div>
 <div *ngIf="error" class="error">
     <h2>Ha ocurrido un error</h2>
